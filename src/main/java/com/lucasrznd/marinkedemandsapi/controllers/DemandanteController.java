@@ -29,9 +29,9 @@ public interface DemandanteController {
             @ApiResponse(responseCode = "201", description = "Demandante created", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandanteResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
-                    mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandanteResponse.class))),
+                    mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
-                    mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandanteResponse.class)))
+                    mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
     })
     @PostMapping
     ResponseEntity<DemandanteResponse> save(@RequestBody @Valid final DemandanteRequest request);
