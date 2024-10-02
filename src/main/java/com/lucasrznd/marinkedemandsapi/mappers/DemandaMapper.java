@@ -18,6 +18,10 @@ public interface DemandaMapper {
     @Mapping(target = "areaConhecimento", source = "areaConhecimento.descricao")
     DemandaResponse toResponse(final Demanda demanda);
 
+    @Mapping(target = "demandante.id", source = "demandanteId")
+    @Mapping(target = "tipoProduto.id", source = "tipoProdutoId")
+    @Mapping(target = "tipoServico.id", source = "tipoServicoId")
+    @Mapping(target = "areaConhecimento.id", source = "areaConhecimentoId")
     Demanda toEntity(final DemandaRequest request);
 
     Demanda update(final DemandaRequest request, @MappingTarget Demanda demanda);
