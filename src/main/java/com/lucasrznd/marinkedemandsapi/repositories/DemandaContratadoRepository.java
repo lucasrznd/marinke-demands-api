@@ -1,0 +1,9 @@
+package com.lucasrznd.marinkedemandsapi.repositories;
+
+import com.lucasrznd.marinkedemandsapi.entities.DemandaContratado;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DemandaContratadoRepository extends JpaRepository<DemandaContratado, Long> {
+}
