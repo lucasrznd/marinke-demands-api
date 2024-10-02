@@ -29,7 +29,7 @@ public class ReembolsoService {
     public ReembolsoResponse update(final Long id, final ReembolsoRequest request) {
         Reembolso reembolso = find(id);
 
-        return mapper.toResponse(mapper.update(request, reembolso));
+        return mapper.toResponse(repository.save(mapper.update(request, reembolso)));
     }
 
     public void delete(Long id) {
