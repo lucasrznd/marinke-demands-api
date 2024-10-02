@@ -22,6 +22,10 @@ public interface ReembolsoMapper {
     @Mapping(target = "contratado.id", source = "contratadoId")
     Reembolso toEntity(final ReembolsoRequest request);
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "tipoReembolso.id", source = "tipoReembolsoId")
+    @Mapping(target = "demanda.idContratacao", source = "demandaId")
+    @Mapping(target = "contratado.id", source = "contratadoId")
     Reembolso update(final ReembolsoRequest request, @MappingTarget Reembolso reembolso);
 
 }
