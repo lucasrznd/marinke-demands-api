@@ -1,21 +1,18 @@
 package com.lucasrznd.marinkedemandsapi.dtos.request;
 
-import com.lucasrznd.marinkedemandsapi.dtos.response.ContratadoResponse;
-import com.lucasrznd.marinkedemandsapi.dtos.response.DemandaResponse;
-import com.lucasrznd.marinkedemandsapi.dtos.response.TipoReembolsoResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
 public record ReembolsoRequest(
-        @Schema(description = "Tipo de Reembolso", example = "{id: 1, descricao: Combustivel}")
+        @Schema(description = "Tipo de Reembolso", example = "id: 1")
         @NotNull(message = "Tipo Reembolso não pode ser nulo")
-        TipoReembolsoResponse tipoReembolso,
+        Long tipoReembolsoId,
 
-        @Schema(description = "Demanda", example = "{id: 1, numeroContrato: 4070, dataContrato: 2024-17-09...}")
+        @Schema(description = "Demanda", example = "id: 1")
         @NotNull(message = "Demanda não pode ser nula")
-        DemandaResponse demanda,
+        String demandaId,
 
         @Schema(description = "Data da Atividade", example = "2024-17-09")
         @NotNull(message = "Data não pode ser nula")
@@ -25,9 +22,8 @@ public record ReembolsoRequest(
         @NotNull(message = "Valor do Reembolso não pode ser nulo")
         Double valor,
 
-        @Schema(description = "Contratado", example = "{id: 1, nome: Rogerio Marinke, telefone: 14988887777, email: marinke@gmail.com}")
-        @NotNull(message = "Contratado não pode ser nulo")
-        ContratadoResponse contratado,
+        @Schema(description = "Contratado", example = "id: 1")
+        Long contratadoId,
 
         @Schema(description = "Link do Comprovante")
         String linkComprovante) {
