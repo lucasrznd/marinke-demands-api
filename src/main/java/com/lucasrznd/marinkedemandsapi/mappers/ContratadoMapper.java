@@ -7,7 +7,8 @@ import org.mapstruct.*;
 
 @Mapper(componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
+        uses = {DemandaContratadoMapper.class})
 public interface ContratadoMapper {
 
     ContratadoResponse toResponse(final Contratado contratado);

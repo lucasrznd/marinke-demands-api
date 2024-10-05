@@ -8,7 +8,8 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
-        uses = {DemandanteMapper.class, TipoProdutoMapper.class, TipoServicoMapper.class, AreaConhecimentoMapper.class})
+        uses = {DemandanteMapper.class, TipoProdutoMapper.class, TipoServicoMapper.class, AreaConhecimentoMapper.class,
+                ReembolsoMapper.class, NotaFiscalMapper.class, AgendamentoMapper.class, DemandaContratadoMapper.class})
 public interface DemandaMapper {
 
     @Mapping(target = "nomeDemandante", source = "demandante.nome")

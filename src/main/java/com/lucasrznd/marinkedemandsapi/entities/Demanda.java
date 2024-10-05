@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -43,5 +44,16 @@ public class Demanda {
     private int cargaHoraria;
     private Boolean statusContrato;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "demanda")
+    private List<Agendamento> agendamentos;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "demanda")
+    private List<Reembolso> reembolsos;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "demanda")
+    private List<DemandaContratado> contratados;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "demanda")
+    private List<NotaFiscal> notasFiscais;
 
 }

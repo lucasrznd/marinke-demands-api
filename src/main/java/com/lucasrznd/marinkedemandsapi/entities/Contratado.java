@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,5 +22,8 @@ public class Contratado {
     private String nome;
     private String telefone;
     private String email;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "contratado")
+    private List<DemandaContratado> demandas;
 
 }
