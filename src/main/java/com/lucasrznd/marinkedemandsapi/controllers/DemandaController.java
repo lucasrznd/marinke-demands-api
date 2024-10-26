@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/demandas")
 public interface DemandaController {
 
-    @Operation(summary = "Save new Demanda")
+    @Operation(summary = "Salvar nova Demanda")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Demanda created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Demanda criada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandaResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface DemandaController {
     @PostMapping
     ResponseEntity<DemandaResponse> save(@RequestBody @Valid final DemandaRequest request);
 
-    @Operation(summary = "Find all Demandas")
+    @Operation(summary = "Encontrar todas Demandas")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Demandas founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Demandas encontradas", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = DemandaResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface DemandaController {
     @GetMapping
     ResponseEntity<List<DemandaResponse>> findAll();
 
-    @Operation(summary = "Update Demanda")
+    @Operation(summary = "Atualizar Demanda")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Demanda updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Demanda atualizada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandaResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Demanda not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Demanda não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface DemandaController {
                                            @PathVariable(name = "id") final Long id,
                                            @RequestBody @Valid final DemandaRequest request);
 
-    @Operation(summary = "Delete Demanda")
+    @Operation(summary = "Remover Demanda")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Demanda deleted"),
+            @ApiResponse(responseCode = "204", description = "Demanda removida"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Demanda not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Demanda não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

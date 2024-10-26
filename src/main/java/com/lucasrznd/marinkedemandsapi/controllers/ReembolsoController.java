@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/reembolsos")
 public interface ReembolsoController {
 
-    @Operation(summary = "Save new Reembolso")
+    @Operation(summary = "Salvar novo Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Reembolso created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Reembolso criado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = ReembolsoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface ReembolsoController {
     @PostMapping
     ResponseEntity<ReembolsoResponse> save(@RequestBody @Valid final ReembolsoRequest request);
 
-    @Operation(summary = "Find all Reembolsos")
+    @Operation(summary = "Encontrar todos Reembolsos")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Reembolsos founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Reembolsos encontrados", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = ReembolsoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface ReembolsoController {
     @GetMapping
     ResponseEntity<List<ReembolsoResponse>> findAll();
 
-    @Operation(summary = "Update Reembolso")
+    @Operation(summary = "Atualizar Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Reembolso updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Reembolso atualizado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = ReembolsoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Reembolso not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Reembolso não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface ReembolsoController {
                                              @PathVariable(name = "id") final Long id,
                                              @RequestBody @Valid final ReembolsoRequest request);
 
-    @Operation(summary = "Delete Reembolso")
+    @Operation(summary = "Remover Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Reembolso deleted"),
+            @ApiResponse(responseCode = "204", description = "Reembolso removido"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Reembolso not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Reembolso não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

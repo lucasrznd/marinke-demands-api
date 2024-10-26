@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/tipos-produtos")
 public interface TipoProdutoController {
 
-    @Operation(summary = "Save new Tipo Produto")
+    @Operation(summary = "Salvar novo Tipo Produto")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Tipo Produto created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Tipo Produto criado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = TipoProdutoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface TipoProdutoController {
     @PostMapping
     ResponseEntity<TipoProdutoResponse> save(@RequestBody @Valid final TipoProdutoRequest request);
 
-    @Operation(summary = "Find all Tipos Produtos")
+    @Operation(summary = "Encontrar todos Tipos Produtos")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Tipos Produtos founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Tipos Produtos encontrados", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = TipoProdutoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface TipoProdutoController {
     @GetMapping
     ResponseEntity<List<TipoProdutoResponse>> findAll();
 
-    @Operation(summary = "Update Tipo Produto")
+    @Operation(summary = "Atualizar Tipo Produto")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Tipo Produto updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Tipo Produto atualizado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = TipoProdutoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Tipo produto not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Tipo produto não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface TipoProdutoController {
                                                @PathVariable(name = "id") final Long id,
                                                @RequestBody @Valid final TipoProdutoRequest request);
 
-    @Operation(summary = "Delete Tipo Produto")
+    @Operation(summary = "Remover Tipo Produto")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Tipo Produto deleted"),
+            @ApiResponse(responseCode = "204", description = "Tipo Produto removido"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Tipo Produto not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Tipo Produto não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

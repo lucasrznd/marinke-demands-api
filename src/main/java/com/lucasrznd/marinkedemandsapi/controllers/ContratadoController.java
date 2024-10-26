@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/contratados")
 public interface ContratadoController {
 
-    @Operation(summary = "Save new contratado")
+    @Operation(summary = "Salvar novo contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Contratado created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Contratado criado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = ContratadoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface ContratadoController {
     @PostMapping
     ResponseEntity<ContratadoResponse> save(@RequestBody @Valid final ContratadoRequest request);
 
-    @Operation(summary = "Find all contratados")
+    @Operation(summary = "Encontrar todos contratados")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Contratados founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Contratados encontrados", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = ContratadoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface ContratadoController {
     @GetMapping
     ResponseEntity<List<ContratadoResponse>> findAll();
 
-    @Operation(summary = "Update contratado")
+    @Operation(summary = "Atualizar contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Contratado updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Contratado atualizado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = ContratadoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Contratado not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Contratado não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface ContratadoController {
                                               @PathVariable(name = "id") final Long id,
                                               @RequestBody @Valid final ContratadoRequest request);
 
-    @Operation(summary = "Delete contratado")
+    @Operation(summary = "Remover contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Contratado deleted"),
+            @ApiResponse(responseCode = "204", description = "Contratado removido"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Contratado not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Contratado não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/notas-fiscais")
 public interface NotaFiscalController {
 
-    @Operation(summary = "Save new Nota Fiscal")
+    @Operation(summary = "Salvar nova Nota Fiscal")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Nota Fiscal created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Nota Fiscal criada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = NotaFiscalResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface NotaFiscalController {
     @PostMapping
     ResponseEntity<NotaFiscalResponse> save(@RequestBody @Valid final NotaFiscalRequest request);
 
-    @Operation(summary = "Find all Notas Fiscais")
+    @Operation(summary = "Encontrar todas Notas Fiscais")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Notas Fiscais founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Notas Fiscais encontradas", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = NotaFiscalResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface NotaFiscalController {
     @GetMapping
     ResponseEntity<List<NotaFiscalResponse>> findAll();
 
-    @Operation(summary = "Update Nota Fiscal")
+    @Operation(summary = "Atualizar Nota Fiscal")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Nota Fiscal updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Nota Fiscal atualizada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = NotaFiscalResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Nota Fiscal not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Nota Fiscal não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface NotaFiscalController {
                                               @PathVariable(name = "id") final Long id,
                                               @RequestBody @Valid final NotaFiscalRequest request);
 
-    @Operation(summary = "Delete Nota Fiscal")
+    @Operation(summary = "Remover Nota Fiscal")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Nota Fiscal deleted"),
+            @ApiResponse(responseCode = "204", description = "Nota Fiscal removida"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Nota Fiscal not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Nota Fiscal não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

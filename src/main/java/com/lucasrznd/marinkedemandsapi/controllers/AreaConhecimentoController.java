@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/areas-conhecimento")
 public interface AreaConhecimentoController {
 
-    @Operation(summary = "Save new area conhecimento")
+    @Operation(summary = "Salvar nova Area de Conhecimento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Area Conhecimento created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Area de Conhecimento criada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = AreaConhecimentoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface AreaConhecimentoController {
     @PostMapping
     ResponseEntity<AreaConhecimentoResponse> save(@RequestBody @Valid final AreaConhecimentoRequest request);
 
-    @Operation(summary = "Find all Areas Conhecimento")
+    @Operation(summary = "Encontrar todas Areas de Conhecimento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Areas Conhecimento founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Areas de Conhecimento encontradas", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = AreaConhecimentoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface AreaConhecimentoController {
     @GetMapping
     ResponseEntity<List<AreaConhecimentoResponse>> findAll();
 
-    @Operation(summary = "Update Area Conhecimento")
+    @Operation(summary = "Atualizar Area de Conhecimento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Area Conhecimento updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Area Conhecimento atualizada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = AreaConhecimentoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Area Conhecimento not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Area Conhecimento não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface AreaConhecimentoController {
                                                     @PathVariable(name = "id") final Long id,
                                                     @RequestBody @Valid final AreaConhecimentoRequest request);
 
-    @Operation(summary = "Delete Area Conhecimento")
+    @Operation(summary = "Remover Area de Conhecimento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Area Conhecimento deleted"),
+            @ApiResponse(responseCode = "204", description = "Area de Conhecimento removida"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Area Conhecimento not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Area Conhecimento não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/tipos-reembolsos")
 public interface TipoReembolsoController {
 
-    @Operation(summary = "Save new Tipo Reembolso")
+    @Operation(summary = "Salvar novo Tipo Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Tipo Reembolso created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Tipo Reembolso criado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = TipoReembolsoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface TipoReembolsoController {
     @PostMapping
     ResponseEntity<TipoReembolsoResponse> save(@RequestBody @Valid final TipoReembolsoRequest request);
 
-    @Operation(summary = "Find all Tipos Reembolsos")
+    @Operation(summary = "Encontrar todos Tipos Reembolsos")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Tipos Reembolsos founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Tipos Reembolsos encontrados", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = TipoReembolsoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface TipoReembolsoController {
     @GetMapping
     ResponseEntity<List<TipoReembolsoResponse>> findAll();
 
-    @Operation(summary = "Update Tipo Reembolso")
+    @Operation(summary = "Atualizar Tipo Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Tipo Reembolso updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Tipo Reembolso atualizado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = TipoReembolsoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Tipo Reembolso not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Tipo Reembolso não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface TipoReembolsoController {
                                                  @PathVariable(name = "id") final Long id,
                                                  @RequestBody @Valid final TipoReembolsoRequest request);
 
-    @Operation(summary = "Delete Tipo Reembolso")
+    @Operation(summary = "Remover Tipo Reembolso")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Tipo Reembolso deleted"),
+            @ApiResponse(responseCode = "204", description = "Tipo Reembolso removido"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Tipo Reembolso not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Tipo Reembolso não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

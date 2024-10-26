@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/demanda-contratados")
 public interface DemandaContratadoController {
 
-    @Operation(summary = "Save new Demanda Contratado")
+    @Operation(summary = "Salvar nova Demanda Contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Demanda Contratado created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Demanda Contratado criada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandaContratadoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface DemandaContratadoController {
     @PostMapping
     ResponseEntity<DemandaContratadoResponse> save(@RequestBody @Valid final DemandaContratadoRequest request);
 
-    @Operation(summary = "Find all Demanda Contratados")
+    @Operation(summary = "Encontrar todas Demandas Contratados")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Demanda Contratados founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Demanda Contratados encontradas", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = DemandaContratadoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface DemandaContratadoController {
     @GetMapping
     ResponseEntity<List<DemandaContratadoResponse>> findAll();
 
-    @Operation(summary = "Update Demanda Contratado")
+    @Operation(summary = "Atualizar Demanda Contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Demanda Contratado updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Demanda Contratado atualizada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = DemandaContratadoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Demanda Contratado not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Demanda Contratado não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface DemandaContratadoController {
                                                      @PathVariable(name = "id") final Long id,
                                                      @RequestBody @Valid final DemandaContratadoRequest request);
 
-    @Operation(summary = "Delete Demanda Contratado")
+    @Operation(summary = "Remover Demanda Contratado")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Demanda Contratado deleted"),
+            @ApiResponse(responseCode = "204", description = "Demanda Contratado removida"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Demanda Contratado not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Demanda Contratado não encontrada", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))

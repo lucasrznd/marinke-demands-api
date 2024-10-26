@@ -23,9 +23,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/agendamentos")
 public interface AgendamentoController {
 
-    @Operation(summary = "Save new Agendamento")
+    @Operation(summary = "Salvar novo Agendamento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Agendamento created", content = @Content(
+            @ApiResponse(responseCode = "201", description = "Agendamento criado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = AgendamentoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
@@ -35,9 +35,9 @@ public interface AgendamentoController {
     @PostMapping
     ResponseEntity<AgendamentoResponse> save(@RequestBody @Valid final AgendamentoRequest request);
 
-    @Operation(summary = "Find all Agendamentos")
+    @Operation(summary = "Encontrar todos Agendamentos")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Agendamentos founded", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Agendamentos encontrados", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = AgendamentoResponse.class)))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -45,13 +45,13 @@ public interface AgendamentoController {
     @GetMapping
     ResponseEntity<List<AgendamentoResponse>> findAll();
 
-    @Operation(summary = "Update Agendamento")
+    @Operation(summary = "Atualizar Agendamento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Agendamento updated", content = @Content(
+            @ApiResponse(responseCode = "200", description = "Agendamento atualizado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = AgendamentoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Agendamento not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Agendamento não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
@@ -61,12 +61,12 @@ public interface AgendamentoController {
                                                @PathVariable(name = "id") final Long id,
                                                @RequestBody @Valid final AgendamentoRequest request);
 
-    @Operation(summary = "Delete Agendamento")
+    @Operation(summary = "Remover Agendamento")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Agendamento deleted"),
+            @ApiResponse(responseCode = "204", description = "Agendamento removido"),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
-            @ApiResponse(responseCode = "404", description = "Agendamento not found", content = @Content(
+            @ApiResponse(responseCode = "404", description = "Agendamento não encontrado", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class))),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(
                     mediaType = APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = StandardError.class))))
