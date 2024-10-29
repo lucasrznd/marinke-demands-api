@@ -13,7 +13,7 @@ Este **componente** é responsável por gerenciar demandas de serviços com o ob
 
 <h2 id="relational-model">🗄️ Modelo Relacional</h2>
 
-[![temp-Image3fmk-SG.avif](https://i.postimg.cc/zGCgp0Qb/temp-Image3fmk-SG.avif)](https://postimg.cc/QFMCdkhh)
+<a href="https://ibb.co/x747tfq"><img src="https://i.ibb.co/7191dRt/Projeto-Marinke-MR.png" alt="Projeto-Marinke-MR" border="0" /></a>
 
 <h2 id="author">👨🏻‍💻 Autor</h2>
 
